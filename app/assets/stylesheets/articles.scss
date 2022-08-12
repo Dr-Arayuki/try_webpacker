@@ -1,7 +1,7 @@
 
 .background {
   width: 100%;
-  height: 120vh;
+  height: 110vh;
   position: relative;
   background-image: url(./haikei_image.jpg);
   background-repeat: no-repeat;
@@ -49,6 +49,16 @@
   text-decoration: none;
 }
 
+.chat-bottom {
+  height: 100px;
+  padding: 0 100px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+  margin-bottom: 32px;
+}
+
+
 
 /*タブ切り替え全体のスタイル*/
 .tabs {
@@ -61,7 +71,7 @@
 
 /*タブのスタイル*/
 .tab_item {
-  width: calc(100%/3);
+  width: calc(100%/5);
   height: 50px;
   border-bottom: 3px solid #5ab4bd;
   background-color: #d9d9d9;;
@@ -74,6 +84,7 @@
   text-align: center;
   font-weight: bold;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 .tab_item:hover {
   opacity: 0.75;
@@ -96,9 +107,11 @@ input[name="tab_item"] {
 
 
 /*選択されているタブのコンテンツのみを表示*/
+#intro:checked ~ #intro_content,
 #all:checked ~ #all_content,
 #programming:checked ~ #programming_content,
-#design:checked ~ #design_content {
+#design:checked ~ #design_content,
+#concl:checked ~ #concl_content {
   display: block;
 }
 
@@ -110,57 +123,4 @@ input[name="tab_item"] {
 
 * {
   font-family: "Noto Sans JP", sans-serif;
-}
-
-:root {
-  --main-bg-color: #4a90e2;
-  --sub-bg-color: #d32b75;
-}
-
-.c-accordion {
-  background-color: rgba(0,0,0,0.8);;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 80px;
-  border-radius: 8px;
-  border-style: solid;
-  border-width: 4px;
-  border-color: var(--main-bg-color);
-  margin-bottom: 32px;
-  &_ttl {
-    background-image: url("data:image/svg+xml,%3Csvg width='28' height='29' viewBox='0 0 28 29' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 28.4248C21.732 28.4248 28 22.1568 28 14.4248C28 6.69282 21.732 0.424805 14 0.424805C6.26801 0.424805 0 6.69282 0 14.4248C0 22.1568 6.26801 28.4248 14 28.4248Z' fill='%234A90E2'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.5629 9.44141C13.8797 9.44141 14.1452 9.70697 14.156 10.0346L14.4282 18.3384C14.4389 18.666 14.1908 18.9316 13.8739 18.9316C13.5571 18.9316 13.2915 18.666 13.2808 18.3384L13.0086 10.0346C12.9979 9.70697 13.246 9.44141 13.5629 9.44141Z' fill='white' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.12875 14.186C9.11801 13.8584 9.36616 13.5928 9.683 13.5928H17.7147C18.0315 13.5928 18.2971 13.8584 18.3078 14.186C18.3186 14.5136 18.0704 14.7791 17.7536 14.7791H9.72188C9.40504 14.7791 9.13948 14.5136 9.12875 14.186Z' fill='white' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
-    background-position: right 24px center;
-    background-size: 28px;
-    background-repeat: no-repeat;
-    list-style: none;
-    padding: 32px;
-    cursor: pointer;
-    font-size: 18px;
-    color: var(--main-bg-color);
-    font-weight: bold;
-  }
-  &[open] &_ttl {
-    background-image: url("data:image/svg+xml,%3Csvg width='29' height='29' viewBox='0 0 29 29' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.2339 28.4248C21.9659 28.4248 28.2339 22.1568 28.2339 14.4248C28.2339 6.69282 21.9659 0.424805 14.2339 0.424805C6.5019 0.424805 0.233887 6.69282 0.233887 14.4248C0.233887 22.1568 6.5019 28.4248 14.2339 28.4248Z' fill='%234A90E2'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.36264 14.186C9.35191 13.8584 9.60005 13.5928 9.9169 13.5928H17.9486C18.2654 13.5928 18.531 13.8584 18.5417 14.186C18.5524 14.5136 18.3043 14.7791 17.9874 14.7791H9.95578C9.63894 14.7791 9.37338 14.5136 9.36264 14.186Z' fill='white' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
-  }
-  &_txt {
-    padding: 30px;
-    padding-top: 0;
-    margin-top: 0;
-    color: #FAFAFA;
-  }
-
-  // 色違いパターン
-  &.red {
-    border-color: var(--sub-bg-color);
-    .c-accordion_ttl {
-      color: var(--sub-bg-color);
-      background-image: url("data:image/svg+xml,%3Csvg width='28' height='29' viewBox='0 0 28 29' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 28.4248C21.732 28.4248 28 22.1568 28 14.4248C28 6.69282 21.732 0.424805 14 0.424805C6.26801 0.424805 0 6.69282 0 14.4248C0 22.1568 6.26801 28.4248 14 28.4248Z' fill='%23d32b75'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.5629 9.44141C13.8797 9.44141 14.1452 9.70697 14.156 10.0346L14.4282 18.3384C14.4389 18.666 14.1908 18.9316 13.8739 18.9316C13.5571 18.9316 13.2915 18.666 13.2808 18.3384L13.0086 10.0346C12.9979 9.70697 13.246 9.44141 13.5629 9.44141Z' fill='white' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.12875 14.186C9.11801 13.8584 9.36616 13.5928 9.683 13.5928H17.7147C18.0315 13.5928 18.2971 13.8584 18.3078 14.186C18.3186 14.5136 18.0704 14.7791 17.7536 14.7791H9.72188C9.40504 14.7791 9.13948 14.5136 9.12875 14.186Z' fill='white' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
-    }
-    &[open] .c-accordion_ttl {
-      background-image: url("data:image/svg+xml,%3Csvg width='29' height='29' viewBox='0 0 29 29' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.2339 28.4248C21.9659 28.4248 28.2339 22.1568 28.2339 14.4248C28.2339 6.69282 21.9659 0.424805 14.2339 0.424805C6.5019 0.424805 0.233887 6.69282 0.233887 14.4248C0.233887 22.1568 6.5019 28.4248 14.2339 28.4248Z' fill='%23d32b75'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.36264 14.186C9.35191 13.8584 9.60005 13.5928 9.9169 13.5928H17.9486C18.2654 13.5928 18.531 13.8584 18.5417 14.186C18.5524 14.5136 18.3043 14.7791 17.9874 14.7791H9.95578C9.63894 14.7791 9.37338 14.5136 9.36264 14.186Z' fill='white' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
-    }
-  }
 }
